@@ -13,17 +13,17 @@
     </head>
     <body>
         <h1>Arithmetic Calculator</h1>
-        <form>
+        <form method="POST">
             <label>First:</label>
             <input type="number" name="first" value="${firstNumber}">
             <br>
             <label>Second:</label>
             <input type="number" name="second" value="${secondNumber}">
             <br><br>
-            <input type="button" id="additionButton" value="+">
-            <input type="button" id="subtractionButton" value="-">
-            <input type="button" id="multiplicationButton" value="*">
-            <input type="button" id="divisionButton" value="%">
+            <input type="submit" id="additionButton" name="function" value="+">
+            <input type="submit" id="subtractionButton" name="function" value="-">
+            <input type="submit" id="multiplicationButton" name="function" value="*">
+            <input type="submit" id="modulusButton" name="function" value="%">
         </form>
         <p>${message}</p>
         <a href="agecalculator.jsp">Age Calculator</a>

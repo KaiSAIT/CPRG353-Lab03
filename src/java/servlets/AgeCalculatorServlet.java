@@ -21,14 +21,14 @@ public class AgeCalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
         
         // capture the parameters coming in from the POST request
-        int userage = Integer.parseInt(request.getParameter("user_age"));
+        String userage = request.getParameter("user_age");
         
         // set some attributes in the request object
         // the request object will be passed through to the JSP by the forward() method
         request.setAttribute("userAge", userage);
         
         // validations: if the parameters don't exist or are empty, show the first page again
-        if( userage == null || userage.equals("")  ) {
+        if( userage == null || userage.equals("") || !isNumeric(userage) ) {
             
             //  set up a helpful error message for the user
             request.setAttribute("message", "You must give your current age");
@@ -50,6 +50,10 @@ public class AgeCalculatorServlet extends HttpServlet {
             
         }
 
+    }
+
+    private boolean isNumeric(String userage) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -21,8 +21,8 @@ public class ArithmeticCalculator extends HttpServlet {
             throws ServletException, IOException {
         
         // capture the parameters coming in from the POST request
-        int firstnumber = Integer.parseInt(request.getParameter("first_number"));
-        int secondnumber = Integer.parseInt(request.getParameter("second_number"));
+        String firstnumber = request.getParameter("first_number");
+        String secondnumber = request.getParameter("second_number");
         
         // set some attributes in the request object
         // the request object will be passed through to the JSP by the forward() method
@@ -30,7 +30,7 @@ public class ArithmeticCalculator extends HttpServlet {
         request.setAttribute("firstNumber", firstnumber);
         
         // validations: if the parameters don't exist or are empty, show the first page again
-        if( firstnumber == null || firstnumber.equals("") || secondnumber == null || secondnumber.equals("")) {
+        if( firstnumber == null || firstnumber.equals("") || secondnumber == null || secondnumber.equals("") || !isNumeric(firstnumber) || !isNumeric(secondnumber) ) {
             
             //  set up a helpful error message for the user
             request.setAttribute("message", "Result: invalid");
@@ -40,7 +40,20 @@ public class ArithmeticCalculator extends HttpServlet {
             return;
             
         }
+        
+        String functionSelected = request.getParameter("function");
+        double solution = 0.0;
+        
+  
+    }
 
+    public static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
     
 }
