@@ -1,9 +1,3 @@
-<%-- 
-    Document   : agecalculator
-    Created on : Oct 3, 2021, 10:33:37 AM
-    Author     : 849533
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +7,7 @@
     </head>
     <body>
         <h1>Age Calculator</h1>
-        <form>
+        <form method="POST" action="age">
             <label>Enter your age:</label>
             <input type="number" name="age" value="${userAge}">
             <br><br>
