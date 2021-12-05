@@ -1,9 +1,3 @@
-<%-- 
-    Document   : arithmeticcalculator
-    Created on : Oct 3, 2021, 11:01:03 AM
-    Author     : 849533
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +7,7 @@
     </head>
     <body>
         <h1>Arithmetic Calculator</h1>
-        <form method="POST">
+        <form method="POST" action="age">
             <label>First:</label>
             <input type="number" name="first" value="${firstNumber}">
             <br>
