@@ -23,14 +23,22 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
         // capture the parameters coming in from the POST request
         String firstnumber = request.getParameter("first_number");
         String secondnumber = request.getParameter("second_number");
+        String add = request.getParameter("add");
+        String subtract = request.getParameter("subtract");
+        String multiply = request.getParameter("multiply");
+        String modulus = request.getParameter("modulus");
         
         // set some attributes in the request object
         // the request object will be passed through to the JSP by the forward() method
         request.setAttribute("firstNumber", firstnumber);
-        request.setAttribute("firstNumber", firstnumber);
+        request.setAttribute("secondNumber", secondnumber);
+        request.setAttribute("add", add);
+        request.setAttribute("subtract", subtract);
+        request.setAttribute("multiply", multiply);
+        request.setAttribute("modulus", modulus);
         
         // validations: if the parameters don't exist or are empty, show the first page again
-        if( firstnumber == null || firstnumber.equals("") || secondnumber == null || secondnumber.equals("") || !isNumeric(firstnumber) || !isNumeric(secondnumber) ) {
+        if( firstnumber == null || firstnumber.equals("") || secondnumber == null || secondnumber.equals("") ) {
             
             //  set up a helpful error message for the user
             request.setAttribute("message", "Result: invalid");
@@ -40,20 +48,21 @@ public class ArithmeticCalculatorServlet extends HttpServlet {
             return;
             
         }
-        
-        String functionSelected = request.getParameter("function");
-        double solution = 0.0;
+        else {
+            
+            //try to see if user inputted a number, if not display error message
+            try {
+                int firstNumberInt = Integer.parseInt(firstnumber);
+                int secondNumberInt = Integer.parseInt(secondnumber);
+            } catch (NumberFormatException e) {
+                request.setAttribute("message", "Invalid.");
+                getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp").forward(request, response);
+                return;
+            }
+            
+        }
         
   
-    }
-
-    public static boolean isNumeric(String str) {
-        try {
-            Double.parseDouble(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
     }
     
 }
