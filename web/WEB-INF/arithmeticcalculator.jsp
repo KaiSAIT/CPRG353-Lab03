@@ -14,12 +14,12 @@
             <label>Second:</label>
             <input type="number" name="second" value="${secondNumber}">
             <br><br>
-            <input type="submit" id="additionButton" name="function" value="+">
-            <input type="submit" id="subtractionButton" name="function" value="-">
-            <input type="submit" id="multiplicationButton" name="function" value="*">
-            <input type="submit" id="modulusButton" name="function" value="%">
+            <input type="submit" id="additionButton" name="add" value="+">
+            <input type="submit" id="subtractionButton" name="subtract" value="-">
+            <input type="submit" id="multiplicationButton" name="nultiply" value="*">
+            <input type="submit" id="modulusButton" name="modulus" value="%">
         </form>
-        <p>${message}</p>
-        <a href="agecalculator.jsp">Age Calculator</a>
+        <p>Result: ${message}</p>
+        <a href="age">Age Calculator</a>
     </body>
 </html>
